@@ -53,6 +53,23 @@ public class CourseOrder
     }
 
     /**
+     * コース(梅)オーダー生成メソッド
+     * @param number
+     */
+    public static CourseOrder createUmeCourse( int number )
+    {
+        CourseOrder order = new CourseOrder();
+
+        // 人数の設定
+        order.setUser( number );
+
+        // 選択コースの設定：梅
+        order.setCourse( DinnerReservation.Course.Ume );
+
+        return order;
+    }
+
+    /**
      * 人数設定
      * @param number 人数
      */

@@ -50,12 +50,10 @@ public class DinnerReservationTest
     public void testUme()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder order = CourseOrder.createUmeCourse( 10 );          // 梅コース 10人
 
-        // コースの追加(梅)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Ume
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 30,000 円(3,000円 × 10名)
         assertEquals( 30000, reserv.getCharget() );
