@@ -48,13 +48,8 @@ public class DinnerReservation
 
     /**
      * 複数コース保持用（コース、人数）
-     */)
-    private HashMap< Course, Integer > __courseTable = new HashMap<>();
-
-    /**
-     * 人数
      */
-    private int __number;
+    private HashMap< Course, Integer > __courseTable = new HashMap<>();
 
     /**
      * 選択コース
@@ -90,8 +85,11 @@ public class DinnerReservation
         // 単価取得
         int price = this.getPrice( this.__course );
 
+        // 人数取得
+        int number = this.__courseTable.get( this.__course );
+
         // 単価 × 人数 - クーポンs
-        return ( price * this.__number ) - ( 10000 * this.__coupon );
+        return ( price * number ) - ( 10000 * this.__coupon );
     }
 
     /**
@@ -129,7 +127,6 @@ public class DinnerReservation
      */
     public void addCourse(int number, Course course)
     {
-        this.__number = number;
         this.__course = course;
 
         // コーステーブルに追加
