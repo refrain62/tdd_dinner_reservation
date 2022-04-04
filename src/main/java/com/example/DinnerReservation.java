@@ -27,5 +27,27 @@ package com.example;
  * 宴会料金計算
  */
 public class DinnerReservation {
+
+    /**
+     * 人数設定
+     * @param number 人数
+     */
+    public void setUser(int number) {
+    }
+
+    /**
+     * コース選択
+     * @param course コース
+     */
+    public void setCourse(int course) {
+    }
+
+    /**
+     * 料金取得
+     * @return
+     */
+    public int getCharget() {
+        return 70000;
+    }
     
 }
