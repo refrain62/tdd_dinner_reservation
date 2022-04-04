@@ -16,11 +16,11 @@ public class DinnerReservationTest
     {
         DinnerReservation reserv = new DinnerReservation();
 
-        // 人数 - 10人
-        reserv.setUser( 10 );
-
-        // コース: 松
-        reserv.setCourse( DinnerReservation.Course.Matsu );
+        // コースの追加(松)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Matsu
+                            );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
@@ -34,11 +34,11 @@ public class DinnerReservationTest
     {
         DinnerReservation reserv = new DinnerReservation();
 
-        // 人数 - 10人
-        reserv.setUser( 10 );
-
-        // コース: 竹
-        reserv.setCourse( DinnerReservation.Course.Take);
+        // コースの追加(竹)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Take
+                            );
 
         // 結果 - 料金 = 50,000 円(5,000円 × 10名)
         assertEquals( 50000, reserv.getCharget() );
@@ -52,11 +52,11 @@ public class DinnerReservationTest
     {
         DinnerReservation reserv = new DinnerReservation();
 
-        // 人数 - 10人
-        reserv.setUser( 10 );
-
-        // コース: 梅
-        reserv.setCourse( DinnerReservation.Course.Ume );
+        // コースの追加(梅)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Ume
+                            );
 
         // 結果 - 料金 = 30,000 円(3,000円 × 10名)
         assertEquals( 30000, reserv.getCharget() );
@@ -70,11 +70,11 @@ public class DinnerReservationTest
     {
         DinnerReservation reserv = new DinnerReservation();
 
-        // 人数 - 10人
-        reserv.setUser( 10 );
-
-        // コース: 松
-        reserv.setCourse( DinnerReservation.Course.Matsu );
+        // コースの追加(松)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Matsu
+                            );
 
         // クーポン適用 - 1枚
         reserv.setCoupon( 1 );
