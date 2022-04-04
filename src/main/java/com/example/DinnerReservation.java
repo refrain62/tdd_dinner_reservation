@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.HashMap;
+
 // ----------------------------------------
 // 基本シナリオ - 宴会料金計算
 //
@@ -26,7 +28,8 @@ package com.example;
 // ◎コースの定数化
 // ◎単価判定の別メソッド化
 // ・複数コース対応の追加
-//   ・１コースの追加
+//   ◎１コースの追加
+//   ・HasshMapの使用
 // ----------------------------------------
 
 /**
@@ -42,6 +45,11 @@ public class DinnerReservation
         ,Take
         ,Ume
     }
+
+    /**
+     * 複数コース保持用（コース、人数）
+     */)
+    private HashMap< Course, Integer > __courseTable = new HashMap<>();
 
     /**
      * 人数
@@ -123,5 +131,8 @@ public class DinnerReservation
     {
         this.__number = number;
         this.__course = course;
+
+        // コーステーブルに追加
+        this.__courseTable.put( course, number );
     }
 }
