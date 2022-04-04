@@ -131,4 +131,15 @@ public class DinnerReservation
                 return 0;
         }
     }
+
+    /**
+     * コース追加
+     * @param number 人数
+     * @param course コース
+     */
+    public void addCourse(int number, Course course)
+    {
+        this.__number = number;
+        this.__course = course;
+    }
 }
