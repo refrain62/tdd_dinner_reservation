@@ -36,6 +36,23 @@ public class CourseOrder
     }
 
     /**
+     * コース(竹)オーダー生成メソッド
+     * @param number
+     */
+    public static CourseOrder createTakeCourse( int number )
+    {
+        CourseOrder order = new CourseOrder();
+
+        // 人数の設定
+        order.setUser( number );
+
+        // 選択コースの設定：竹
+        order.setCourse( DinnerReservation.Course.Take );
+
+        return order;
+    }
+
+    /**
      * 人数設定
      * @param number 人数
      */

@@ -34,12 +34,10 @@ public class DinnerReservationTest
     public void testTake()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder order = CourseOrder.createTakeCourse( 10 );        // 竹コース 10人
 
-        // コースの追加(竹)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Take
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 50,000 円(5,000円 × 10名)
         assertEquals( 50000, reserv.getCharget() );
