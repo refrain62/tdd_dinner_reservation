@@ -1,5 +1,6 @@
 package com;
 
+
 import com.example.DinnerReservation;
 
 /**
@@ -16,6 +17,23 @@ public class CourseOrder
      * 選択コース
      */
     private DinnerReservation.Course _course;
+
+    /**
+     * コース(松)オーダー生成メソッド
+     * @param number
+     */
+    public static CourseOrder createMatsuCourse( int number )
+    {
+        CourseOrder order = new CourseOrder();
+
+        // 人数の設定
+        order.setUser( number );
+
+        // 選択コースの設定：松
+        order.setCourse( DinnerReservation.Course.Matsu );
+
+        return order;
+    }
 
     /**
      * 人数設定

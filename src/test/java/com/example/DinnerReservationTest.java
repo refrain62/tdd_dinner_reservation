@@ -18,13 +18,7 @@ public class DinnerReservationTest
     public void testMatsu()
     {
         DinnerReservation reserv = new DinnerReservation();
-        CourseOrder order = new CourseOrder();
-
-        // 人数の設定
-        order.setUser( 10 );
-
-        // 選択コースの設定：松
-        order.setCourse( DinnerReservation.Course.Matsu );
+        CourseOrder order = CourseOrder.createMatsuCourse( 10 );        // 松コース 10人
 
         // 選択オーダーの追加
         reserv.addCourseOrder( order );
