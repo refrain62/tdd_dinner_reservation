@@ -81,6 +81,5 @@ public class DinnerReservationTest
 
         // 結果 - 料金 = 60,000 円(7,000円 × 10名 - 10,000円<クーポン>)
         assertEquals( 60000, reserv.getCharget() );
-
     }
 }

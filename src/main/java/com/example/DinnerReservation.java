@@ -17,7 +17,7 @@ package com.example;
 // TODO LIKST
 // ----------------------------------------
 // ◎料金計算(松)
-// 　・クーポンの使用
+// 　◎クーポンの使用
 // 　・クーポンは3枚まで
 // ◎料金計算(竹)
 // ◎料金計算(梅)
@@ -50,6 +50,11 @@ public class DinnerReservation
     private Course __course;
 
     /**
+     * クーポン
+     */
+    private int __coupon;
+
+    /**
      * 人数設定
      * @param number 人数
      */
@@ -68,6 +73,15 @@ public class DinnerReservation
     }
 
     /**
+     * クーポン適用
+     * @param coupon クーポン枚数
+     */
+	public void setCoupon( int coupon )
+    {
+        this.__coupon = coupon;
+	}
+    
+    /**
      * 料金取得
      * @return
      */
@@ -76,8 +90,8 @@ public class DinnerReservation
         // 単価取得
         int price = this.getPrice( this.__course );
 
-        // 単価 × 人数
-        return price * this.__number;
+        // 単価 × 人数 - クーポンs
+        return ( price * this.__number ) - ( 10000 * this.__coupon );
     }
 
     /**
@@ -107,7 +121,4 @@ public class DinnerReservation
                 return 0;
         }
     }
-
-    
-    
 }
