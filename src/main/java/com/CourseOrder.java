@@ -127,4 +127,25 @@ public class CourseOrder
     {
         return this._style;
     }
+
+    /**
+     * コース × スタイルの有効性チェック
+     */
+    public boolean isValid()
+    {
+        // 中華で松の場合はTRUE
+        if( DinnerReservation.Style.Chinese.equals( this._style ) == true )
+        {
+            if( DinnerReservation.Course.Matsu.equals( this._course ) == true )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
 }

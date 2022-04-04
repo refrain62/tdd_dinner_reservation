@@ -169,6 +169,7 @@ public class DinnerReservationTest
     /**
      * 中華風の場合に竹／梅のエラー
      */
+    @Test
     public void testValidation()
     {
         // スタイル：竹 - 中華のチェック
