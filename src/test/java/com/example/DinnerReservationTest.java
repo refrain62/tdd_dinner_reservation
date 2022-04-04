@@ -134,6 +134,6 @@ public class DinnerReservationTest
                             );
 
         // 結果 - 料金 = 71,000 円(7,000円 × 3名 + 5,000円 × 10名)
-        assertEquals( 710000, reserv.getCharget() );
+        assertEquals( 71000, reserv.getCharget() );
     }
 }
