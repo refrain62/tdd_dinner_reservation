@@ -82,4 +82,16 @@ public class DinnerReservationTest
         // 結果 - 料金 = 60,000 円(7,000円 × 10名 - 10,000円<クーポン>)
         assertEquals( 60000, reserv.getCharget() );
     }
+    
+    /**
+     * クーポン適用 3枚まで テスト
+     */
+    @Test( expected = CouponException.class )
+    public void testCouponException()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+
+        // クーポン適用 - 4枚で例外発生
+        reserv.setCoupon( 4 );
+    }
 }
