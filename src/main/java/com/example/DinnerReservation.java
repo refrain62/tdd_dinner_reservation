@@ -26,28 +26,38 @@ package com.example;
 /**
  * 宴会料金計算
  */
-public class DinnerReservation {
+public class DinnerReservation
+{
+    /**
+     * 人数
+     */
+    private int __number;
 
     /**
      * 人数設定
      * @param number 人数
      */
-    public void setUser(int number) {
+    public void setUser( int number )
+    {
+        this.__number = number;
     }
 
     /**
      * コース選択
      * @param course コース
      */
-    public void setCourse(int course) {
+    public void setCourse( int course )
+    {
     }
 
     /**
      * 料金取得
      * @return
      */
-    public int getCharget() {
-        return 70000;
+    public int getCharget()
+    {
+        // 料金 × 人数
+        return 7000 * this.__number;
     }
     
 }
