@@ -3,6 +3,8 @@ package com.example;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.CourseOrder;
+
 // ----------------------------------------
 // 基本シナリオ - 宴会料金計算
 //
@@ -49,7 +51,7 @@ import java.util.Map;
 // ・和風／洋風／中華風 の追加
 // ・中華風の場合に竹／梅のエラー
 // ・中華風の場合に松の料金対応
-// ・CourseOrderの作成
+// ◎CourseOrderの作成
 // ----------------------------------------
 
 /**
@@ -153,5 +155,14 @@ public class DinnerReservation
     {
         // コーステーブルに追加
         this.__courseTable.put( course, number );
+    }
+
+    /**
+     * 選択オーダーの追加
+     * @param order 選択オーダー
+     */
+    public void addCourseOrder( CourseOrder order )
+    {
+        this.__courseTable.put( order.getCourse(), order.getUser() );
     }
 }

@@ -1,6 +1,9 @@
 package com.example;
 
 import static org.junit.Assert.*;
+
+import com.CourseOrder;
+
 import org.junit.Test;
 
 /**
@@ -15,12 +18,16 @@ public class DinnerReservationTest
     public void testMatsu()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder order = new CourseOrder();
 
-        // コースの追加(松)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 人数の設定
+        order.setUser( 10 );
+
+        // 選択コースの設定：松
+        order.setCourse( DinnerReservation.Course.Matsu );
+
+        // 選択オーダーの追加
+        reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
