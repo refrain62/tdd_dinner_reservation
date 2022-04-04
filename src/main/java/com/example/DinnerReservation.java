@@ -34,6 +34,11 @@ public class DinnerReservation
     private int __number;
 
     /**
+     * 選択コース
+     */
+    private int __course;
+
+    /**
      * 人数設定
      * @param number 人数
      */
@@ -48,6 +53,7 @@ public class DinnerReservation
      */
     public void setCourse( int course )
     {
+        this.__course = course;
     }
 
     /**
@@ -56,8 +62,23 @@ public class DinnerReservation
      */
     public int getCharget()
     {
+        int charge = 0;
+
         // 料金 × 人数
-        return 7000 * this.__number;
+        switch( this.__course )
+        {
+            // コース : 1:松
+            case 1:
+                charge = 7000 * this.__number;
+                break;
+                
+            // コース : 2:竹
+            case 2:
+            charge = 5000 * this.__number;
+            break;
+        }
+
+        return charge;
     }
     
 }
