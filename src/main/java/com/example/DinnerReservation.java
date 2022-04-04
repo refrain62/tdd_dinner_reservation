@@ -22,7 +22,7 @@ package com.example;
 // ◎料金計算(竹)
 // ◎料金計算(梅)
 // ◎コースの定数化
-// ・単価判定の別メソッド化
+// ◎単価判定の別メソッド化
 // ----------------------------------------
 
 /**
@@ -73,29 +73,41 @@ public class DinnerReservation
      */
     public int getCharget()
     {
-        int price = 0;
+        // 単価取得
+        int price = this.getPrice( this.__course );
 
+        // 単価 × 人数
+        return price * this.__number;
+    }
+
+    /**
+     * 単価取得
+     * @param course 選択コース
+     * @return 単価
+     */
+    private int getPrice( Course course )
+    {
         // 料金判定
-        switch( this.__course )
+        switch( course )
         {
             // コース : 1:松
             case Matsu:
-                price = 7000;
-                break;
+                return 7000;
                 
             // コース : 2:竹
             case Take:
-                price = 5000;
-                break;
+                return 5000;
                 
             // コース : 3:梅
             case Ume:
-                price = 3000;
-                break;
-        }
+                return 3000;
 
-        // 料金 × 人数
-        return price * this.__number;
+            // それ以外
+            default:
+                return 0;
+        }
     }
+
+    
     
 }
