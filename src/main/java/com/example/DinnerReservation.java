@@ -21,7 +21,7 @@ package com.example;
 // 　・クーポンは3枚まで
 // ◎料金計算(竹)
 // ◎料金計算(梅)
-// ・コースの定数化
+// ◎コースの定数化
 // ・単価判定の別メソッド化
 // ----------------------------------------
 
@@ -31,6 +31,15 @@ package com.example;
 public class DinnerReservation
 {
     /**
+     * 定数：コース
+     */
+    public enum Course {
+         Matsu
+        ,Take
+        ,Ume
+    }
+
+    /**
      * 人数
      */
     private int __number;
@@ -38,7 +47,7 @@ public class DinnerReservation
     /**
      * 選択コース
      */
-    private int __course;
+    private Course __course;
 
     /**
      * 人数設定
@@ -53,7 +62,7 @@ public class DinnerReservation
      * コース選択
      * @param course コース
      */
-    public void setCourse( int course )
+    public void setCourse( Course course )
     {
         this.__course = course;
     }
@@ -70,17 +79,17 @@ public class DinnerReservation
         switch( this.__course )
         {
             // コース : 1:松
-            case 1:
+            case Matsu:
                 charge = 7000 * this.__number;
                 break;
                 
             // コース : 2:竹
-            case 2:
+            case Take:
             charge = 5000 * this.__number;
             break;
                 
             // コース : 3:梅
-            case 3:
+            case Ume:
             charge = 3000 * this.__number;
             break;
         }

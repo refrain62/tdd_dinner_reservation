@@ -20,7 +20,7 @@ public class DinnerReservationTest
         reserv.setUser( 10 );
 
         // コース: 1:松
-        reserv.setCourse( DinnerReservation.Matsu );
+        reserv.setCourse( DinnerReservation.Course.Matsu );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
@@ -38,7 +38,7 @@ public class DinnerReservationTest
         reserv.setUser( 10 );
 
         // コース: 2:竹
-        reserv.setCourse( DinnerReservation.Take);
+        reserv.setCourse( DinnerReservation.Course.Take);
 
         // 結果 - 料金 = 50,000 円(5,000円 × 10名)
         assertEquals( 50000, reserv.getCharget() );
@@ -56,7 +56,7 @@ public class DinnerReservationTest
         reserv.setUser( 10 );
 
         // コース: 3:梅
-        reserv.setCourse( DinnerReservation.Ume );
+        reserv.setCourse( DinnerReservation.Course.Ume );
 
         // 結果 - 料金 = 30,000 円(3,000円 × 10名)
         assertEquals( 30000, reserv.getCharget() );
