@@ -94,4 +94,22 @@ public class DinnerReservationTest
         // クーポン適用 - 4枚で例外発生
         reserv.setCoupon( 4 );
     }
+
+    /**
+     * コース追加のテスト
+     */
+    @Test
+    public void testAddOneCourse()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+
+        // コースの追加(松)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Matsu
+                            );
+
+        // 結果 - 料金 = 70,000 円(7,000円 × 10名)
+        assertEquals( 70000, reserv.getCharget() );
+    }
 }

@@ -26,6 +26,7 @@ package com.example;
 // ◎コースの定数化
 // ◎単価判定の別メソッド化
 // ・複数コース対応の追加
+//   ・１コースの追加
 // ----------------------------------------
 
 /**
@@ -113,15 +114,15 @@ public class DinnerReservation
         // 料金判定
         switch( course )
         {
-            // コース : 1:松
+            // コース : 松
             case Matsu:
                 return 7000;
                 
-            // コース : 2:竹
+            // コース : 竹
             case Take:
                 return 5000;
                 
-            // コース : 3:梅
+            // コース : 梅
             case Ume:
                 return 3000;
 
