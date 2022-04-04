@@ -73,28 +73,29 @@ public class DinnerReservation
      */
     public int getCharget()
     {
-        int charge = 0;
+        int price = 0;
 
-        // 料金 × 人数
+        // 料金判定
         switch( this.__course )
         {
             // コース : 1:松
             case Matsu:
-                charge = 7000 * this.__number;
+                price = 7000;
                 break;
                 
             // コース : 2:竹
             case Take:
-            charge = 5000 * this.__number;
-            break;
+                price = 5000;
+                break;
                 
             // コース : 3:梅
             case Ume:
-            charge = 3000 * this.__number;
-            break;
+                price = 3000;
+                break;
         }
 
-        return charge;
+        // 料金 × 人数
+        return price * this.__number;
     }
     
 }
