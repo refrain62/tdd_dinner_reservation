@@ -76,6 +76,11 @@ public class DinnerReservation
             case 2:
             charge = 5000 * this.__number;
             break;
+                
+            // コース : 3:梅
+            case 3:
+            charge = 3000 * this.__number;
+            break;
         }
 
         return charge;
