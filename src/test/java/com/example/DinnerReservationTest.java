@@ -146,4 +146,22 @@ public class DinnerReservationTest
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
     }
+
+    /**
+     * スタイル(和／洋／中)のテスト
+     */
+    public void testStyle()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+        CourseOrder orderMatsu = CourseOrder.createMatsuCourse( 10 );       // 松コース 10人
+
+        // スタイル：和食
+        orderMatsu.setStyle( DinnerReservation.Style.Japanse );
+
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderMatsu );
+        
+        // 結果 - 料金 = 70,000 円(7,000円 × 10名)
+        assertEquals( 70000, reserv.getCharget() );
+    }
 }
