@@ -48,7 +48,7 @@ import com.CourseOrder;
 //   ◎HasshMapの使用
 // ◎同一コースの追加
 // ----------------------------------------
-// ・和風／洋風／中華風 の追加
+// ◎和風／洋風／中華風 の追加
 // ・中華風の場合に竹／梅のエラー
 // ・中華風の場合に松の料金対応
 // ◎CourseOrderの作成
@@ -68,6 +68,15 @@ public class DinnerReservation
         ,Take
         ,Ume
     }
+
+    /**
+     * 定数：スタイル
+     */
+    public enum Style {
+        Japanse
+       ,Western
+       ,Chinese
+   }
 
     /**
      * 複数コース保持用（コース、人数）

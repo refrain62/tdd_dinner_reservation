@@ -150,6 +150,7 @@ public class DinnerReservationTest
     /**
      * スタイル(和／洋／中)のテスト
      */
+    @Test
     public void testStyle()
     {
         DinnerReservation reserv = new DinnerReservation();

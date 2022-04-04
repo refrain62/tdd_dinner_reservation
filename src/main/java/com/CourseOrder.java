@@ -19,6 +19,11 @@ public class CourseOrder
     private DinnerReservation.Course _course;
 
     /**
+     * 選択スタイル
+     */
+    private DinnerReservation.Style _style;
+
+    /**
      * コース(松)オーダー生成メソッド
      * @param number
      */
@@ -103,5 +108,23 @@ public class CourseOrder
     public DinnerReservation.Course getCourse()
     {
         return this._course;
+    }
+    
+    /**
+     * 選択スタイル設定
+     * @param style
+     */
+    public void setStyle( DinnerReservation.Style style )
+    {
+        this._style = style;
+    }
+
+    /**
+     * 選択スタイル取得
+     * @return
+     */
+    public DinnerReservation.Style getStyle()
+    {
+        return this._style;
     }
 }
