@@ -52,7 +52,7 @@ import com.CourseOrder;
 // ・中華風の場合に竹／梅のエラー
 // ・中華風の場合に松の料金対応
 // ◎CourseOrderの作成
-// ・生成メソッドの追加
+// ◎生成メソッドの追加
 // ----------------------------------------
 
 /**
@@ -145,17 +145,6 @@ public class DinnerReservation
             default:
                 return 0;
         }
-    }
-
-    /**
-     * コース追加
-     * @param number 人数
-     * @param course コース
-     */
-    public void addCourse(int number, Course course)
-    {
-        // コーステーブルに追加
-        this.__courseTable.put( course, number );
     }
 
     /**

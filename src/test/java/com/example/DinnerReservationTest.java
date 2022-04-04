@@ -66,12 +66,10 @@ public class DinnerReservationTest
     public void testCoupon()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder order = CourseOrder.createMatsuCourse( 10 );        // 松コース 10人
 
-        // コースの追加(松)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( order );
 
         // クーポン適用 - 1枚
         reserv.setCoupon( 1 );
@@ -99,12 +97,10 @@ public class DinnerReservationTest
     public void testAddOneCourse()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder order = CourseOrder.createMatsuCourse( 10 );        // 松コース 10人
 
-        // コースの追加(松)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
@@ -117,18 +113,14 @@ public class DinnerReservationTest
     public void testTwoCourse()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder orderMatsu = CourseOrder.createMatsuCourse( 3 );         // 松コース 3人
+        CourseOrder orderTake = CourseOrder.createTakeCourse( 10 );        // 竹コース 10人
 
-        // コースの追加(松)
-        reserv.addCourse(
-                             3
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderMatsu );
 
-        // コースの追加(竹)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Take
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderTake );
 
         // 結果 - 料金 = 71,000 円(7,000円 × 3名 + 5,000円 × 10名)
         assertEquals( 71000, reserv.getCharget() );
@@ -141,18 +133,14 @@ public class DinnerReservationTest
     public void testAddSameCourse()
     {
         DinnerReservation reserv = new DinnerReservation();
+        CourseOrder orderMatsu03 = CourseOrder.createMatsuCourse( 3 );      // 松コース 3人
+        CourseOrder orderMatsu10 = CourseOrder.createMatsuCourse( 10 );     // 松コース 10人
 
-        // コースの追加(松)
-        reserv.addCourse(
-                             3
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderMatsu03 );
 
-        // コースの追加(竹)
-        reserv.addCourse(
-                             10
-                            ,DinnerReservation.Course.Matsu
-                            );
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderMatsu10 );
 
         // 後から追加した内容で上書きされるので（仕様）
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
