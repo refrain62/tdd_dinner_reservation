@@ -59,24 +59,6 @@ public class DinnerReservation
     private int __coupon;
 
     /**
-     * 人数設定
-     * @param number 人数
-     */
-    public void setUser( int number )
-    {
-        this.__number = number;
-    }
-
-    /**
-     * コース選択
-     * @param course コース
-     */
-    public void setCourse( Course course )
-    {
-        this.__course = course;
-    }
-
-    /**
      * クーポン適用
      * @param coupon クーポン枚数
      */
