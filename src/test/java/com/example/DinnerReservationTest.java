@@ -165,4 +165,33 @@ public class DinnerReservationTest
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
     }
+
+    /**
+     * 中華風の場合に竹／梅のエラー
+     */
+    public void testValidation()
+    {
+        // スタイル：竹 - 中華のチェック
+        CourseOrder order = CourseOrder.createTakeCourse( 10 );         // 竹コース 10人
+
+        order.setStyle( DinnerReservation.Style.Chinese );
+
+        assertFalse( order.isValid() );
+
+
+        // スタイル：梅 - 中華のチェック
+        order = CourseOrder.createUmeCourse( 10 );                      // 梅コース 10人
+
+        order.setStyle( DinnerReservation.Style.Chinese );
+
+        assertFalse( order.isValid() );
+        
+
+        // スタイル：松 - 中華のチェック
+        order = CourseOrder.createMatsuCourse( 10 );                    // 松コース 10人
+
+        order.setStyle( DinnerReservation.Style.Chinese );
+
+        assertTrue( order.isValid() );
+    }
 }
