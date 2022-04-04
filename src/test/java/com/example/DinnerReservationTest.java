@@ -19,10 +19,28 @@ public class DinnerReservationTest
         // 人数 - 10人
         reserv.setUser( 10 );
 
-        // コース:松
+        // コース: 1:松
         reserv.setCourse( 1 );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
         assertEquals( 70000, reserv.getCharget() );
-    }    
+    }
+
+    /**
+     * 料金計算（竹）のテスト
+     */
+    @Test
+    public void testTake()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+
+        // 人数 - 10人
+        reserv.setUser( 10 );
+
+        // コース: 2:竹
+        reserv.setCourse( 2 );
+
+        // 結果 - 料金 = 50,000 円(5,000円 × 10名)
+        assertEquals( 50000, reserv.getCharget() );
+    }
 }
