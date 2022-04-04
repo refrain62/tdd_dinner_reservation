@@ -18,7 +18,7 @@ package com.example;
 // ----------------------------------------
 // ◎料金計算(松)
 // 　◎クーポンの使用
-// 　・クーポンは3枚まで
+// 　◎クーポンは3枚まで
 // ◎料金計算(竹)
 // ◎料金計算(梅)
 // ◎コースの定数化
@@ -78,6 +78,12 @@ public class DinnerReservation
      */
 	public void setCoupon( int coupon )
     {
+        // 3枚以上の場合は例外発生
+        if( coupon > 3 )
+        {
+            throw new CouponException();
+        }
+
         this.__coupon = coupon;
 	}
     
