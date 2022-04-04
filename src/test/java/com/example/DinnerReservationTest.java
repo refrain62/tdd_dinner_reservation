@@ -136,4 +136,29 @@ public class DinnerReservationTest
         // 結果 - 料金 = 71,000 円(7,000円 × 3名 + 5,000円 × 10名)
         assertEquals( 71000, reserv.getCharget() );
     }
+    
+    /**
+     * 同一コースの複数追加テスト
+     */
+    @Test
+    public void testAddSameCourse()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+
+        // コースの追加(松)
+        reserv.addCourse(
+                             3
+                            ,DinnerReservation.Course.Matsu
+                            );
+
+        // コースの追加(竹)
+        reserv.addCourse(
+                             10
+                            ,DinnerReservation.Course.Matsu
+                            );
+
+        // 後から追加した内容で上書きされるので（仕様）
+        // 結果 - 料金 = 70,000 円(7,000円 × 10名)
+        assertEquals( 70000, reserv.getCharget() );
+    }
 }
