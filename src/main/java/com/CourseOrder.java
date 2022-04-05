@@ -148,4 +148,43 @@ public class CourseOrder
         
         return true;
     }
+
+    /**
+     * 注文の料金を取得
+     * @return
+     */
+    public int getOrderCharge()
+    {
+        int price = this.getPrice( this._course );
+
+        return price * this._number;
+    }
+
+    /**
+     * コースの料金を取得
+     * @param course 選択コース
+     * @return 単価
+     */
+    private int getPrice( DinnerReservation.Course course )
+    {
+        // 料金判定
+        switch( course )
+        {
+            // コース : 松
+            case Matsu:
+                return 7000;
+                
+            // コース : 竹
+            case Take:
+                return 5000;
+                
+            // コース : 梅
+            case Ume:
+                return 3000;
+
+            // それ以外
+            default:
+                return 0;
+        }
+    }
 }

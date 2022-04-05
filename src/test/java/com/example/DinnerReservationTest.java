@@ -3,6 +3,7 @@ package com.example;
 import static org.junit.Assert.*;
 
 import com.CourseOrder;
+import com.example.DinnerReservation.Course;
 
 import org.junit.Test;
 
@@ -11,6 +12,18 @@ import org.junit.Test;
  */
 public class DinnerReservationTest
 {
+    /**
+     * コース注文の金額確認
+     */
+    @Test
+    public void testOrerCharge()
+    {
+        CourseOrder order = CourseOrder.createMatsuCourse( 10 );
+
+        // 金額の確認
+        assertEquals( 70000, order.getOrderCharge() );
+    }
+
     /**
      * 料金計算（松）のテスト
      */
@@ -24,7 +37,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
-        assertEquals( 70000, reserv.getCharget() );
+        assertEquals( 70000, reserv.getCharge() );
     }
 
     /**
@@ -40,7 +53,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 50,000 円(5,000円 × 10名)
-        assertEquals( 50000, reserv.getCharget() );
+        assertEquals( 50000, reserv.getCharge() );
     }
     
     /**
@@ -56,7 +69,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 30,000 円(3,000円 × 10名)
-        assertEquals( 30000, reserv.getCharget() );
+        assertEquals( 30000, reserv.getCharge() );
     }
     
     /**
@@ -75,7 +88,7 @@ public class DinnerReservationTest
         reserv.setCoupon( 1 );
 
         // 結果 - 料金 = 60,000 円(7,000円 × 10名 - 10,000円<クーポン>)
-        assertEquals( 60000, reserv.getCharget() );
+        assertEquals( 60000, reserv.getCharge() );
     }
     
     /**
@@ -103,7 +116,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( order );
 
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
-        assertEquals( 70000, reserv.getCharget() );
+        assertEquals( 70000, reserv.getCharge() );
     }
 
     /**
@@ -123,7 +136,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( orderTake );
 
         // 結果 - 料金 = 71,000 円(7,000円 × 3名 + 5,000円 × 10名)
-        assertEquals( 71000, reserv.getCharget() );
+        assertEquals( 71000, reserv.getCharge() );
     }
     
     /**
@@ -144,7 +157,7 @@ public class DinnerReservationTest
 
         // 後から追加した内容で上書きされるので（仕様）
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
-        assertEquals( 70000, reserv.getCharget() );
+        assertEquals( 70000, reserv.getCharge() );
     }
 
     /**
@@ -163,7 +176,7 @@ public class DinnerReservationTest
         reserv.addCourseOrder( orderMatsu );
         
         // 結果 - 料金 = 70,000 円(7,000円 × 10名)
-        assertEquals( 70000, reserv.getCharget() );
+        assertEquals( 70000, reserv.getCharge() );
     }
 
     /**

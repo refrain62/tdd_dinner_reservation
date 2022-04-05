@@ -53,6 +53,7 @@ import com.CourseOrder;
 // ・中華風の場合に松の料金対応
 // ◎CourseOrderの作成
 // ◎生成メソッドの追加
+// ◎料金計算方法の変更
 // ----------------------------------------
 
 /**
@@ -79,9 +80,9 @@ public class DinnerReservation
    }
 
     /**
-     * 複数コース保持用（コース、人数）
+     * 複数コース保持用（コース、注文内容）
      */
-    private HashMap< Course, Integer > __courseTable = new HashMap<>();
+    private HashMap< Course, CourseOrder > __courseTable = new HashMap<>();
 
     /**
      * クーポン
@@ -107,53 +108,19 @@ public class DinnerReservation
      * 料金取得
      * @return
      */
-    public int getCharget()
+    public int getCharge()
     {
         int charge = 0;
 
         // コース毎の金額を算出して加算
-        for( Map.Entry<Course, Integer> course: this.__courseTable.entrySet() )
+        for( Map.Entry<Course, CourseOrder> course: this.__courseTable.entrySet() )
         {
-            // 単価取得
-            int price = this.getPrice( course.getKey() );
-
-            // 人数取得
-            int number = course.getValue();
-            
-            // 単価 × 人数
-            charge += price * number;
+            // コースの注文金額取得
+            charge += course.getValue().getOrderCharge();
         }
 
-        // 単価 × 人数 - クーポン割引
+        // 注文金額 - クーポン割引
         return charge - ( 10000 * this.__coupon );
-    }
-
-    /**
-     * 単価取得
-     * @param course 選択コース
-     * @return 単価
-     */
-    private int getPrice( Course course )
-    {
-        // 料金判定
-        switch( course )
-        {
-            // コース : 松
-            case Matsu:
-                return 7000;
-                
-            // コース : 竹
-            case Take:
-                return 5000;
-                
-            // コース : 梅
-            case Ume:
-                return 3000;
-
-            // それ以外
-            default:
-                return 0;
-        }
     }
 
     /**
@@ -162,6 +129,6 @@ public class DinnerReservation
      */
     public void addCourseOrder( CourseOrder order )
     {
-        this.__courseTable.put( order.getCourse(), order.getUser() );
+        this.__courseTable.put( order.getCourse(), order );
     }
 }
