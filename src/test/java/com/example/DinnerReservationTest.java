@@ -208,4 +208,24 @@ public class DinnerReservationTest
 
         assertTrue( order.isValid() );
     }
+
+    /**
+     * 中華風の場合に松の料金対応確認
+     */
+    @Test
+    public void testAdditionalCharge()
+    {
+        DinnerReservation reserv = new DinnerReservation();
+        CourseOrder orderMatsu = CourseOrder.createMatsuCourse( 10 );       // 松コース 10人
+
+        // スタイル：中華
+        orderMatsu.setStyle( DinnerReservation.Style.Chinese );
+
+        // 選択オーダーの追加
+        reserv.addCourseOrder( orderMatsu );
+        
+        // 松コースで中華の場合は単価が＋５００円
+        // 結果 - 料金 = 75,000 円( ( 7,000円 + 500円 ) × 10名 )
+        assertEquals( 75000, reserv.getCharge() );
+    }
 }
