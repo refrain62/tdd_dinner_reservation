@@ -157,6 +157,14 @@ public class CourseOrder
     {
         int price = this.getPrice( this._course );
 
+        // コースが松で中華の場合は単価を+500円する
+        if(     DinnerReservation.Course.Matsu.equals( this._course ) == true
+            &&  DinnerReservation.Style.Chinese.equals( this._style ) == true
+            )
+        {
+            price += 500;
+        }
+
         return price * this._number;
     }
 
